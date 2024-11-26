@@ -9,9 +9,9 @@ public class Student {
     public Student(){
     }
 
-    public Student(String firstName, String secondName, String email) {
+    public Student(String firstName, String lastName, String email) {
         this.firstName = firstName;
-        this.secondName = secondName;
+        this.lastName = lastName;
         this.email = email;
     }
 
@@ -23,8 +23,8 @@ public class Student {
     @Column(name = "first_name")
     private String firstName;
 
-    @Column(name = "second_name")
-    private String secondName;
+    @Column(name = "last_name")
+    private String lastName;
 
     @Column(name = "email")
     private String email;
@@ -46,11 +46,11 @@ public class Student {
     }
 
     public String getSecondName() {
-        return secondName;
+        return lastName;
     }
 
     public void setSecondName(String secondName) {
-        this.secondName = secondName;
+        this.lastName = secondName;
     }
 
     public String getEmail() {
@@ -66,7 +66,7 @@ public class Student {
         return "Student{" +
                 "id=" + id +
                 ", firstName='" + firstName + '\'' +
-                ", secondName='" + secondName + '\'' +
+                ", secondName='" + lastName + '\'' +
                 ", email='" + email + '\'' +
                 '}';
     }
