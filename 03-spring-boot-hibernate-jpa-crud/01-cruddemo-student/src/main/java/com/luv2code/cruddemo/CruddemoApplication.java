@@ -7,6 +7,8 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 
+import java.util.List;
+
 @SpringBootApplication
 public class CruddemoApplication {
 
@@ -17,17 +19,39 @@ public class CruddemoApplication {
 	@Bean
 	public CommandLineRunner commandLineRunner (StudentDao theStudentDao){
 		return runner -> {
-			//createStudent(theStudentDao);
 
-			readStudent(theStudentDao);
+			//createStudent(theStudentDao);
+			//readStudent(theStudentDao);
+			//queryForStudents(theStudentDao);
+			queryForStudentsByLastName(theStudentDao);
 		};
+	}
+
+	private void queryForStudentsByLastName(StudentDao theStudentDao) {
+		// get a list of students
+		List<Student> theStudents = theStudentDao.findByLastName("doe");
+
+		//display the students
+		for (Student tempStudent : theStudents){
+			System.out.println(tempStudent);
+		}
+	}
+
+	private void queryForStudents(StudentDao theStudentDao) {
+		// get a list of students
+		List<Student> theStudents = theStudentDao.findAll();
+
+		//display list of students
+		for(Student tempStudent : theStudents){
+			System.out.println(tempStudent);
+		}
 	}
 
 	private void readStudent(StudentDao theStudentDao) {
 
 		// create a student object
 		System.out.println("Creating new student");
-		Student tempStudent = new Student("Daffy", "Duck" , "daffy@gmail.com");
+		Student tempStudent = new Student("ha", "Duck" , "daffy@gmail.com");
 
 		//save the student
 		System.out.println("Saving the student");
@@ -49,7 +73,7 @@ public class CruddemoApplication {
 
 		//create the student object
 		System.out.println("Creating new student object");
-		Student tempStudent = new Student("impl" , "impl" , "impl@luv2code.com");
+		Student tempStudent = new Student("impl" , "Duck" , "impl@luv2code.com");
 
 
 		//save the student object
