@@ -23,8 +23,31 @@ public class CruddemoApplication {
 			//createStudent(theStudentDao);
 			//readStudent(theStudentDao);
 			//queryForStudents(theStudentDao);
-			queryForStudentsByLastName(theStudentDao);
+			//queryForStudentsByLastName(theStudentDao);
+			//updateStudent(theStudentDao);
+			deleteStudent(theStudentDao);
 		};
+	}
+
+	private void deleteStudent(StudentDao theStudentDao) {
+		//find the student
+		int studentId = 11;
+		//delete the student
+		theStudentDao.delete(studentId);
+	}
+
+	private void updateStudent(StudentDao theStudentDao) {
+		//find the student
+		Integer studentId = 1;
+		System.out.println("finding the student with id: " + studentId);
+		Student tempStudent = theStudentDao.findById(studentId);
+
+		//update
+		System.out.println("updating student");
+		tempStudent.setSecondName("Doe");
+		theStudentDao.update(tempStudent);
+		//show
+		System.out.println("Updated student: " + tempStudent);
 	}
 
 	private void queryForStudentsByLastName(StudentDao theStudentDao) {
@@ -73,7 +96,7 @@ public class CruddemoApplication {
 
 		//create the student object
 		System.out.println("Creating new student object");
-		Student tempStudent = new Student("impl" , "Duck" , "impl@luv2code.com");
+		Student tempStudent = new Student("delte" , "Duck" , "impl@luv2code.com");
 
 
 		//save the student object

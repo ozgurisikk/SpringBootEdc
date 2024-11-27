@@ -1,6 +1,5 @@
 package com.luv2code.cruddemo.dao;
 
-import com.luv2code.cruddemo.dao.StudentDao;
 import com.luv2code.cruddemo.entity.Student;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.TypedQuery;
@@ -51,5 +50,24 @@ public class StudentDAOImpl implements StudentDao {
         //return query results
 
         return theQuery.getResultList();
+    }
+
+    @Override
+    @Transactional
+    public void update(Student theStudent) {
+        entityManager.merge(theStudent);
+    }
+
+    @Override
+    @Transactional
+    public void delete(Integer id) {
+        Student theStudent = entityManager.find(Student.class, id);
+        if (theStudent == null){
+            System.out.println("there is no such a student record with this id");
+        }else{
+            entityManager.remove(theStudent);
+            System.out.println("Successfully deleted the student with id : " + id );
+        }
+
     }
 }
