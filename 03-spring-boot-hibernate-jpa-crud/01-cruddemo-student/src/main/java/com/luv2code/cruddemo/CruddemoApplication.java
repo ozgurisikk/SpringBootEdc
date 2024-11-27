@@ -21,13 +21,25 @@ public class CruddemoApplication {
 		return runner -> {
 
 			//createStudent(theStudentDao);
+			createMultipleStudents(theStudentDao);
 			//readStudent(theStudentDao);
 			//queryForStudents(theStudentDao);
 			//queryForStudentsByLastName(theStudentDao);
 			//updateStudent(theStudentDao);
 			//deleteStudent(theStudentDao);
-			deleteAllStudents(theStudentDao);
+			//deleteAllStudents(theStudentDao);
 		};
+	}
+
+	private void createMultipleStudents(StudentDao theStudentDao) {
+		Student stu1 = new Student("Test1" , "test1" , "test1@mail.com");
+		Student stu2 = new Student("Test2" , "test2" , "test2@mail.com");
+		Student stu3 = new Student("Test3" , "test3" , "test3@mail.com");
+
+		theStudentDao.save(stu1);
+		theStudentDao.save(stu2);
+		theStudentDao.save(stu3);
+
 	}
 
 	private void deleteAllStudents(StudentDao theStudentDao) {
