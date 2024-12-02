@@ -52,6 +52,6 @@ public class EmployeeRestController {
 
         employeeService.deleteById(employeeId);
 
-        return "Deleted id: " + employeeId;
+        return "Deleted employee: " + dbEmployee;
     }
 }
