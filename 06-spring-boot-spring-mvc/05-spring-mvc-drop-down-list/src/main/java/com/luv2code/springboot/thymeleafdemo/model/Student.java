@@ -3,10 +3,12 @@ package com.luv2code.springboot.thymeleafdemo.model;
 public class Student {
     String firstName;
     String lastName;
+    String country;
 
-    public Student(String firstName, String lastName) {
+    public Student(String firstName, String lastName, String country) {
         this.firstName = firstName;
         this.lastName = lastName;
+        this.country = country;
     }
 
     public Student() {
@@ -26,5 +28,13 @@ public class Student {
 
     public void setLastName(String lastName) {
         this.lastName = lastName;
+    }
+
+    public String getCountry() {
+        return country;
+    }
+
+    public void setCountry(String country) {
+        this.country = country;
     }
 }
