@@ -4,12 +4,8 @@ public class Student {
     String firstName;
     String lastName;
     String country;
+    String favLanguage;
 
-    public Student(String firstName, String lastName, String country) {
-        this.firstName = firstName;
-        this.lastName = lastName;
-        this.country = country;
-    }
 
     public Student() {
     }
@@ -33,8 +29,15 @@ public class Student {
     public String getCountry() {
         return country;
     }
-
     public void setCountry(String country) {
         this.country = country;
+    }
+
+    public String getFavLanguage() {
+        return favLanguage;
+    }
+
+    public void setFavLanguage(String favLanguage) {
+        this.favLanguage = favLanguage;
     }
 }
