@@ -1,0 +1,28 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://thymeleaf.org">
+
+<head>
+    <title>Thymeleaf - Form</title>
+</head>
+
+<body>
+
+Register completed
+
+<br><br>
+
+Student added : <span th:text=" ${student.firstName} + ' ' +  ${student.lastName}" />
+<br><br>
+Country : <span th:text="${student.country}"/>
+<br><br>
+Fav Language : <span th:text="${student.favLanguage}"/>
+<br><br>
+Fav Operating System :
+
+<ul>
+    <li th:each="tempSystem : ${student.favOpSystem}" th:text="${tempSystem}" />
+</ul>
+
+</body>
+
+</html>
