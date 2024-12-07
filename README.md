@@ -1,4 +1,4 @@
-# My Spring Learning Journey 🌱
+# Spring Framework 🌱
 ![Spring Framework Logo](https://upload.wikimedia.org/wikipedia/commons/thumb/4/44/Spring_Framework_Logo_2018.svg/1280px-Spring_Framework_Logo_2018.svg.png)
 
 This repository documents my personal journey of learning the Spring Framework, starting from scratch and progressing to advanced topics. The purpose of this repository is to serve as a resource for others and a reference for myself as I dive deeper into Spring.
