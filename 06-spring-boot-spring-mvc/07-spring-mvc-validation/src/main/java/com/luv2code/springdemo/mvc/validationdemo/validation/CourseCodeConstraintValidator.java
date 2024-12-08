@@ -16,7 +16,8 @@ public class CourseCodeConstraintValidator implements ConstraintValidator<Course
         boolean result;
 
         if (theCode != null){
-            result = theCode.startsWith(coursePrefix);
+            String regex = "^" + coursePrefix + "\\d{3}$";
+            result = theCode.matches(regex);
         }else {
             result = true;
         }
