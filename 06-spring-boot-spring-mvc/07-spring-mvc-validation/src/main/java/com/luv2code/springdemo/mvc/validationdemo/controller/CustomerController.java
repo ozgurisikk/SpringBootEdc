@@ -37,6 +37,11 @@ public class CustomerController {
         //validation results are stored in binding result. You may need to place it just after model parameter
 
         System.out.println("Last name: |" + theCustomer.getLastName() + "|");
+
+        System.out.println("Binding results: " + theBindingResult.toString());
+
+        System.out.println("\n\n\n\n");
+
         if(theBindingResult.hasErrors()){
             return "customer-form";
         }else{
