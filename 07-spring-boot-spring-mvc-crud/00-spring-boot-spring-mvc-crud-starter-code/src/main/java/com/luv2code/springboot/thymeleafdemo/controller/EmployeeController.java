@@ -61,4 +61,12 @@ public class EmployeeController {
         return "employees/employee-form";
     }
 
+    @GetMapping("/delete") //Normalde derste burada get mapping kullanildi ancak get mapping islemlerinde herhangi bir yan etki olmamasi gerektigi icin list-employees formu
+    //yeniden DUZENLENMEDI FYI
+    public String deleteEmployee(@RequestParam("employeeId") int id){
+
+        employeeService.deleteById(id);
+
+        return "redirect:/employees/list";
+    }
 }
