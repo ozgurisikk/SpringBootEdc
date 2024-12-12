@@ -42,7 +42,10 @@
             <label for="password" class="form-label">Password</label>
             <input type="password" id="password" name="password" class="form-control" placeholder="Enter your password" required>
         </div>
-        <button type="submit" class="btn btn-primary w-100">Login</button>
+        <div class="mb-3" th:if="${param.error}">
+            <i>You have entered invalid username / password</i>
+        </div>
+        <button type="submit" class="btn btn-primary w-100 ">Login</button>
     </form>
 </div>
 </body>
