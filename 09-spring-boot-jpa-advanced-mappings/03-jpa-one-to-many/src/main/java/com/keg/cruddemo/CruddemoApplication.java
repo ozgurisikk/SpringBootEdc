@@ -1,6 +1,7 @@
 package com.keg.cruddemo;
 
 import com.keg.cruddemo.dao.abstarcts.AppDAO;
+import com.keg.cruddemo.entity.Course;
 import com.keg.cruddemo.entity.Instructor;
 import com.keg.cruddemo.entity.InstructorDetail;
 import org.springframework.boot.CommandLineRunner;
@@ -24,21 +25,42 @@ public class CruddemoApplication {
 			//findInstructor(appDAO);
 			//deleteInstructor(appDAO);
 			//findInstructorDetail(appDAO);
-			deleteInstructorDetail(appDAO);
+			//deleteInstructorDetail(appDAO);
+
+			createInstructorWithCourses(appDAO);
 		};
 
 
 	}
 
-	private void deleteInstructorDetail(AppDAO appDAO) {
-		int theId = 4;
+	private void createInstructorWithCourses(AppDAO appDAO) {
+		Instructor tempInstructor = new Instructor("susan" , "test", "ozg@gmail.com");
+	    InstructorDetail tempDetail= new InstructorDetail("https://www.youtube.com/", "ha");
 
-		appDAO.deleteDetails(theId);
-		System.out.println("done");
+		//associate the objects
+		tempInstructor.setInstructorDetail(tempDetail);
 
+		//create course
+		Course tempCourse = new Course("Guitar");
+		Course tempCourse2 = new Course("Math");
 
+		//add courses to the instructor
+		tempInstructor.add(tempCourse);
+		tempInstructor.add(tempCourse2);
 
+		//saving instructor
+		System.out.println("saving");
+		appDAO.save(tempInstructor);
+		System.out.println("saved");
 	}
+
+//	private void deleteInstructorDetail(AppDAO appDAO) {
+//		int theId = 4;
+//
+//		appDAO.deleteDetails(theId);
+//		System.out.println("done");
+//
+//	}
 
 //	private void findInstructorDetail(AppDAO appDAO) {
 //		int theId = 1;
