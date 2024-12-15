@@ -20,29 +20,49 @@ public class CruddemoApplication {
 
 		return runner -> {
 
-			createInstructor(appDAO);
-
+			//createInstructor(appDAO);
+			//findInstructor(appDAO);
+			deleteInstructor(appDAO);
 
 		};
 
 
 	}
 
-	private void createInstructor(AppDAO appDAO) {
+	private void deleteInstructor(AppDAO appDAO) {
+		int theId = 3;
 
-		Instructor tempInstructor = new Instructor("ha" , "test", "ozg@gmail.com");
-		InstructorDetail tempDetail= new InstructorDetail("https://www.youtube.com/", "ha");
+		appDAO.delete(theId);
 
-		//associate the objects
-
-		tempInstructor.setInstructorDetail(tempDetail);
-
-		System.out.println("saving instructor");
-		appDAO.save(tempInstructor);
-
-		System.out.println("done");
 
 	}
+
+//	private void findInstructor(AppDAO appDAO) {
+//		int theId = 2;
+//		System.out.println("findting person with id: " + theId);
+//
+//		Instructor tempInstructor = appDAO.findInstructorById(theId);
+//
+//		System.out.println("person:" + tempInstructor);
+//		System.out.println("details: " + tempInstructor.getInstructorDetail());
+//	}
+
+
+//	private void createInstructor(AppDAO appDAO) {
+//
+//		Instructor tempInstructor = new Instructor("ha" , "test", "ozg@gmail.com");
+//		InstructorDetail tempDetail= new InstructorDetail("https://www.youtube.com/", "ha");
+//
+//		//associate the objects
+//
+//		tempInstructor.setInstructorDetail(tempDetail);
+//
+//		System.out.println("saving instructor");
+//		appDAO.save(tempInstructor);
+//
+//		System.out.println("done");
+//
+//	}
 
 
 }
