@@ -2,6 +2,7 @@ package com.keg.cruddemo.dao.concretes;
 
 import com.keg.cruddemo.dao.abstarcts.AppDAO;
 import com.keg.cruddemo.entity.Instructor;
+import com.keg.cruddemo.entity.InstructorDetail;
 import jakarta.persistence.EntityManager;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
@@ -34,5 +35,18 @@ public class AppDAOImpl implements AppDAO {
         Instructor instructor = entityManager.find(Instructor.class, theId);
 
         entityManager.remove(instructor);
+    }
+
+    @Override
+    public InstructorDetail findInstructorDetailById(int theId) {
+        return entityManager.find(InstructorDetail.class , theId);
+    }
+
+    @Override
+    @Transactional
+    public void deleteDetails(int theId) {
+        InstructorDetail instructorDetail = entityManager.find(InstructorDetail.class, theId);
+        instructorDetail.getInstructor().setInstructorDetail(null);
+        entityManager.remove(instructorDetail);
     }
 }

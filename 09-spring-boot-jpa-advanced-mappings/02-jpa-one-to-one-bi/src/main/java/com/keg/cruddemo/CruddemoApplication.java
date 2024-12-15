@@ -22,20 +22,43 @@ public class CruddemoApplication {
 
 			//createInstructor(appDAO);
 			//findInstructor(appDAO);
-			deleteInstructor(appDAO);
-
+			//deleteInstructor(appDAO);
+			//findInstructorDetail(appDAO);
+			deleteInstructorDetail(appDAO);
 		};
 
 
 	}
 
-	private void deleteInstructor(AppDAO appDAO) {
-		int theId = 3;
+	private void deleteInstructorDetail(AppDAO appDAO) {
+		int theId = 4;
 
-		appDAO.delete(theId);
+		appDAO.deleteDetails(theId);
+		System.out.println("done");
+
 
 
 	}
+
+//	private void findInstructorDetail(AppDAO appDAO) {
+//		int theId = 1;
+//
+//		System.out.println("finding the person with id: " + theId);
+//
+//		InstructorDetail instructorDetail = appDAO.findInstructorDetailById(theId);
+//
+//		System.out.println("details:" + instructorDetail);
+//		System.out.println("itself: " + instructorDetail.getInstructor());
+//
+//	}
+
+//	private void deleteInstructor(AppDAO appDAO) {
+//		int theId = 3;
+//
+//		appDAO.delete(theId);
+//
+//
+//	}
 
 //	private void findInstructor(AppDAO appDAO) {
 //		int theId = 2;
@@ -50,7 +73,7 @@ public class CruddemoApplication {
 
 //	private void createInstructor(AppDAO appDAO) {
 //
-//		Instructor tempInstructor = new Instructor("ha" , "test", "ozg@gmail.com");
+//		Instructor tempInstructor = new Instructor("ozg" , "test", "ozg@gmail.com");
 //		InstructorDetail tempDetail= new InstructorDetail("https://www.youtube.com/", "ha");
 //
 //		//associate the objects

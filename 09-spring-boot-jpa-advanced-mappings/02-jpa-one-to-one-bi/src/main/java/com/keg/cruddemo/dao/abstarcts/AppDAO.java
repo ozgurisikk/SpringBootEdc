@@ -1,6 +1,7 @@
 package com.keg.cruddemo.dao.abstarcts;
 
 import com.keg.cruddemo.entity.Instructor;
+import com.keg.cruddemo.entity.InstructorDetail;
 
 public interface AppDAO {
 
@@ -10,4 +11,7 @@ public interface AppDAO {
 
     void delete(int theId);
 
+    InstructorDetail findInstructorDetailById(int theId);
+
+    void deleteDetails(int theId);
 }
