@@ -27,32 +27,43 @@ public class CruddemoApplication {
 			//findInstructorDetail(appDAO);
 			//deleteInstructorDetail(appDAO);
 
-			createInstructorWithCourses(appDAO);
+			//createInstructorWithCourses(appDAO);
+			findInstructorWithCourses(appDAO);
+
 		};
 
 
 	}
 
-	private void createInstructorWithCourses(AppDAO appDAO) {
-		Instructor tempInstructor = new Instructor("susan" , "test", "ozg@gmail.com");
-	    InstructorDetail tempDetail= new InstructorDetail("https://www.youtube.com/", "ha");
+	private void findInstructorWithCourses(AppDAO appDAO) {
+		int theId = 1;
+		System.out.println("finding instructor id:" + theId);
+		Instructor theInstructor = appDAO.findInstructorById(theId);
+		System.out.println(theInstructor);
+		System.out.println(theInstructor.getCourses());
 
-		//associate the objects
-		tempInstructor.setInstructorDetail(tempDetail);
-
-		//create course
-		Course tempCourse = new Course("Guitar");
-		Course tempCourse2 = new Course("Math");
-
-		//add courses to the instructor
-		tempInstructor.add(tempCourse);
-		tempInstructor.add(tempCourse2);
-
-		//saving instructor
-		System.out.println("saving");
-		appDAO.save(tempInstructor);
-		System.out.println("saved");
 	}
+
+//	private void createInstructorWithCourses(AppDAO appDAO) {
+//		Instructor tempInstructor = new Instructor("susan" , "test", "ozg@gmail.com");
+//	    InstructorDetail tempDetail= new InstructorDetail("https://www.youtube.com/", "ha");
+//
+//		//associate the objects
+//		tempInstructor.setInstructorDetail(tempDetail);
+//
+//		//create course
+//		Course tempCourse = new Course("Guitar");
+//		Course tempCourse2 = new Course("Math");
+//
+//		//add courses to the instructor
+//		tempInstructor.add(tempCourse);
+//		tempInstructor.add(tempCourse2);
+//
+//		//saving instructor
+//		System.out.println("saving");
+//		appDAO.save(tempInstructor);
+//		System.out.println("saved");
+//	}
 
 //	private void deleteInstructorDetail(AppDAO appDAO) {
 //		int theId = 4;
