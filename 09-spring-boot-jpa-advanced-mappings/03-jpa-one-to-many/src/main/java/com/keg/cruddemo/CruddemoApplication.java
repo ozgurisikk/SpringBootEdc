@@ -32,26 +32,69 @@ public class CruddemoApplication {
 			//createInstructorWithCourses(appDAO);
 			//findInstructorWithCourses(appDAO);
 			//findCoursesForInstructor(appDAO);
-			findInstructorWithCoursesJoinFetch(appDAO);
+			//findInstructorWithCoursesJoinFetch(appDAO);
+			//updateInstructor(appDAO);
+			//updateCourse(appDAO);
+			//deleteInstructor(appDAO);
+			deleteCourse(appDAO);
 
 		};
 
 
 	}
 
-	private void findInstructorWithCoursesJoinFetch(AppDAO appDAO) {
-		int theId = 1;
-
-		System.out.println("finding the instructor");
-		Instructor tempInstructor = appDAO.findInstructorByIdJoinFetch(theId); // Instructor and courses are retrieved thanks to JOIN FETCH
-
-		System.out.println("The instructor:");
-		System.out.println(tempInstructor);
-		System.out.println("courses: " + tempInstructor.getCourses());
+	private void deleteCourse(AppDAO appDAO) {
+		int theId = 12;
+		System.out.println("deleting the course with id: " + theId);
+		appDAO.deleteCourseById(theId);
 		System.out.println("done");
 
-
 	}
+
+
+//	private void updateCourse(AppDAO appDAO) {
+//		//find course
+//		int theId = 11;
+//		Course course = appDAO.findCourseById(theId);
+//		System.out.println("found the course");
+//
+//		course.setTitle("Update test");
+//		System.out.println("course title updated");
+//
+//		appDAO.updateCourse(course);
+//		System.out.println("course updating mergec");
+//		System.out.println("done");
+//
+//	}
+
+//	private void updateInstructor(AppDAO appDAO) {
+//		//find instructor
+//		int id = 1;
+//		Instructor tempInstructor = appDAO.findInstructorById(id);
+//
+//		//update
+//		System.out.println("updating instructor");
+//		tempInstructor.setLastName("updated");
+//
+//		appDAO.updateInstructor(tempInstructor);
+//		System.out.println("updated");
+//		System.out.println("done");
+//
+//	}
+
+//	private void findInstructorWithCoursesJoinFetch(AppDAO appDAO) {
+//		int theId = 1;
+//
+//		System.out.println("finding the instructor");
+//		Instructor tempInstructor = appDAO.findInstructorByIdJoinFetch(theId); // Instructor and courses are retrieved thanks to JOIN FETCH
+//
+//		System.out.println("The instructor:");
+//		System.out.println(tempInstructor);
+//		System.out.println("courses: " + tempInstructor.getCourses());
+//		System.out.println("done");
+//
+//
+//	}
 
 //	private void findCoursesForInstructor(AppDAO appDAO) {
 //		int theId = 1;
@@ -119,9 +162,12 @@ public class CruddemoApplication {
 //	}
 
 //	private void deleteInstructor(AppDAO appDAO) {
-//		int theId = 3;
+//		int theId = 2;
+//		System.out.println("deleting");
 //
-//		appDAO.delete(theId);
+//		appDAO.deleteInstructorById(theId);
+//
+//		System.out.println("done");
 //
 //
 //	}
