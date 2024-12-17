@@ -25,7 +25,7 @@ public class Instructor {
     @JoinColumn(name = "instructor_detail_id")
     private InstructorDetail instructorDetail;
 
-    @OneToMany(mappedBy = "instructor", fetch = FetchType.EAGER, // eager not the best practice for this situation! Will check for opening a session on hibernate
+    @OneToMany(mappedBy = "instructor", fetch = FetchType.LAZY,
             cascade = {CascadeType.PERSIST, CascadeType.MERGE, CascadeType.DETACH, CascadeType.REFRESH})
     private List<Course> courses;
 

@@ -9,6 +9,8 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 
+import java.util.List;
+
 @SpringBootApplication
 public class CruddemoApplication {
 
@@ -28,21 +30,37 @@ public class CruddemoApplication {
 			//deleteInstructorDetail(appDAO);
 
 			//createInstructorWithCourses(appDAO);
-			findInstructorWithCourses(appDAO);
+			//findInstructorWithCourses(appDAO);
+			findCoursesForInstructor(appDAO);
 
 		};
 
 
 	}
 
-	private void findInstructorWithCourses(AppDAO appDAO) {
+	private void findCoursesForInstructor(AppDAO appDAO) {
 		int theId = 1;
 		System.out.println("finding instructor id:" + theId);
 		Instructor theInstructor = appDAO.findInstructorById(theId);
 		System.out.println(theInstructor);
-		System.out.println(theInstructor.getCourses());
+
+		//find courses for instructor
+		System.out.println("finding courses of instructor");
+		List<Course> courseList = appDAO.findCoursesByInstructorId(theId);
+
+		System.out.println("courses; " + courseList);
+
 
 	}
+
+//	private void findInstructorWithCourses(AppDAO appDAO) {
+//		int theId = 1;
+//		System.out.println("finding instructor id:" + theId);
+//		Instructor theInstructor = appDAO.findInstructorById(theId);
+//		System.out.println(theInstructor);
+//		System.out.println(theInstructor.getCourses());
+//
+//	}
 
 //	private void createInstructorWithCourses(AppDAO appDAO) {
 //		Instructor tempInstructor = new Instructor("susan" , "test", "ozg@gmail.com");
