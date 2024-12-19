@@ -95,7 +95,7 @@ public class CruddemoApplication {
 //
 //
 //	}
-
+	/////
 //	private void findCoursesForInstructor(AppDAO appDAO) {
 //		int theId = 1;
 //		System.out.println("finding instructor id:" + theId);
@@ -110,7 +110,7 @@ public class CruddemoApplication {
 //
 //
 //	}
-
+////
 //	private void findInstructorWithCourses(AppDAO appDAO) {
 //		int theId = 1;
 //		System.out.println("finding instructor id:" + theId);
@@ -119,7 +119,7 @@ public class CruddemoApplication {
 //		System.out.println(theInstructor.getCourses());
 //
 //	}
-
+////
 //	private void createInstructorWithCourses(AppDAO appDAO) {
 //		Instructor tempInstructor = new Instructor("susan" , "test", "ozg@gmail.com");
 //	    InstructorDetail tempDetail= new InstructorDetail("https://www.youtube.com/", "ha");
