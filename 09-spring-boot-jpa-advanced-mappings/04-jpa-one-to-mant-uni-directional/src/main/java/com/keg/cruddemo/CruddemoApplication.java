@@ -24,12 +24,27 @@ public class CruddemoApplication {
 
 		return runner -> {
 
-		createCourseAndReviews(appDAO);
+		//createCourseAndReviews(appDAO);
+
+		retrieveCourseAndReviews(appDAO);
 
 
 		};
 
 
+	}
+
+	private void retrieveCourseAndReviews(AppDAO appDAO) {
+
+		// get the course and reviews
+		int theId = 10;
+		Course tempCourse = appDAO.findCourseAndReviewsByCourseId(theId);
+		// print course
+		System.out.println(tempCourse);
+		// print reviews
+		System.out.println(tempCourse.getReviews());
+
+		System.out.println("done");
 	}
 
 	private void createCourseAndReviews(AppDAO appDAO) {
