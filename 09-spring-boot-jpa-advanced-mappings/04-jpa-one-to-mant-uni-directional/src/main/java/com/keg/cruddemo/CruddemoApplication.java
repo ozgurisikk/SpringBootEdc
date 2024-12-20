@@ -4,6 +4,7 @@ import com.keg.cruddemo.dao.abstarcts.AppDAO;
 import com.keg.cruddemo.entity.Course;
 import com.keg.cruddemo.entity.Instructor;
 import com.keg.cruddemo.entity.InstructorDetail;
+import com.keg.cruddemo.entity.Review;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -23,11 +24,27 @@ public class CruddemoApplication {
 
 		return runner -> {
 
-
+		createCourseAndReviews(appDAO);
 
 
 		};
 
+
+	}
+
+	private void createCourseAndReviews(AppDAO appDAO) {
+
+		Course tempCourse = new Course("sprng math");
+
+		tempCourse.addReview(new Review("fine1"));
+		tempCourse.addReview(new Review("fine2"));
+		tempCourse.addReview(new Review("fine3"));
+
+		System.out.println("saving the course");
+
+		appDAO.save(tempCourse);
+
+		System.out.println("done");
 
 	}
 
