@@ -15,11 +15,28 @@ import java.util.List;
 
 @Repository
 public class AppDAOImpl implements AppDAO {
-//    @Override
-//    @Transactional
-//    public void update(Student student) {
-//        entityManager.merge(student);
-//    }
+    private EntityManager entityManager;
+
+    @Autowired
+    public AppDAOImpl(EntityManager entityManager) {
+        this.entityManager = entityManager;
+    }
+
+
+
+    @Override
+    @Transactional
+    public void deleteStudentById(int theId) {
+        Student student = entityManager.find(Student.class, theId);
+
+        entityManager.remove(student);
+    }
+
+    @Override
+    @Transactional
+    public void update(Student student) {
+        entityManager.merge(student);
+    }
 
     @Override
     public Student findStudentAndClassByStudentId(int theId) {
@@ -45,13 +62,6 @@ public class AppDAOImpl implements AppDAO {
         Course course = query.getSingleResult();
 
         return course;
-    }
-
-    private EntityManager entityManager;
-
-    @Autowired
-    public AppDAOImpl(EntityManager entityManager) {
-        this.entityManager = entityManager;
     }
 
     @Override
