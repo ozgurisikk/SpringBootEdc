@@ -24,52 +24,48 @@ public class CruddemoApplication {
 
 		return runner -> {
 
-		//createCourseAndReviews(appDAO);
 
-		//retrieveCourseAndReviews(appDAO);
-
-		deleteCourseAndReviews(appDAO);
 		};
 
 
 	}
 
-	private void deleteCourseAndReviews(AppDAO appDAO) {
-		int theId = 11;
-
-		System.out.println("Deleting course id: " + theId);
-
-		appDAO.deleteCourseById(theId);
-	}
-
-	private void retrieveCourseAndReviews(AppDAO appDAO) {
-
-		// get the course and reviews
-		int theId = 10;
-		Course tempCourse = appDAO.findCourseAndReviewsByCourseId(theId);
-		// print course
-		System.out.println(tempCourse);
-		// print reviews
-		System.out.println(tempCourse.getReviews());
-
-		System.out.println("done");
-	}
-
-	private void createCourseAndReviews(AppDAO appDAO) {
-
-		Course tempCourse = new Course("sprng math");
-
-		tempCourse.addReview(new Review("fine1"));
-		tempCourse.addReview(new Review("fine2"));
-		tempCourse.addReview(new Review("fine3"));
-
-		System.out.println("saving the course");
-
-		appDAO.save(tempCourse);
-
-		System.out.println("done");
-
-	}
+//	private void deleteCourseAndReviews(AppDAO appDAO) {
+//		int theId = 11;
+//
+//		System.out.println("Deleting course id: " + theId);
+//
+//		appDAO.deleteCourseById(theId);
+//	}
+//
+//	private void retrieveCourseAndReviews(AppDAO appDAO) {
+//
+//		// get the course and reviews
+//		int theId = 10;
+//		Course tempCourse = appDAO.findCourseAndReviewsByCourseId(theId);
+//		// print course
+//		System.out.println(tempCourse);
+//		// print reviews
+//		System.out.println(tempCourse.getReviews());
+//
+//		System.out.println("done");
+//	}
+//
+//	private void createCourseAndReviews(AppDAO appDAO) {
+//
+//		Course tempCourse = new Course("sprng math");
+//
+//		tempCourse.addReview(new Review("fine1"));
+//		tempCourse.addReview(new Review("fine2"));
+//		tempCourse.addReview(new Review("fine3"));
+//
+//		System.out.println("saving the course");
+//
+//		appDAO.save(tempCourse);
+//
+//		System.out.println("done");
+//
+//	}
 
 //	private void deleteCourse(AppDAO appDAO) {
 //		int theId = 12;
