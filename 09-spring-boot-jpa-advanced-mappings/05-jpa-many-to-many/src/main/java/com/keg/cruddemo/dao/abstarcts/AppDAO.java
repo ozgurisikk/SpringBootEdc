@@ -3,6 +3,7 @@ package com.keg.cruddemo.dao.abstarcts;
 import com.keg.cruddemo.entity.Course;
 import com.keg.cruddemo.entity.Instructor;
 import com.keg.cruddemo.entity.InstructorDetail;
+import com.keg.cruddemo.entity.Student;
 
 import java.util.List;
 
@@ -34,5 +35,10 @@ public interface AppDAO {
 
     Course findCourseAndReviewsByCourseId(int theId);
 
+    Course findCourseAndStudentsByCourseId(int theId);
+
+    Student findStudentAndClassByStudentId(int theId);
+
+//    void update (Student student);
 
 }

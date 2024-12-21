@@ -1,10 +1,7 @@
 package com.keg.cruddemo;
 
 import com.keg.cruddemo.dao.abstarcts.AppDAO;
-import com.keg.cruddemo.entity.Course;
-import com.keg.cruddemo.entity.Instructor;
-import com.keg.cruddemo.entity.InstructorDetail;
-import com.keg.cruddemo.entity.Review;
+import com.keg.cruddemo.entity.*;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -24,10 +21,54 @@ public class CruddemoApplication {
 
 		return runner -> {
 
+			//createCourseAndStudents(appDAO);
 
+			//findCourseAndStudents(appDAO);
+
+			findStudentAndCourses(appDAO);
 		};
 
 
+	}
+
+	private void findStudentAndCourses(AppDAO appDAO) {
+		int theId = 2;
+
+		Student student = appDAO.findStudentAndClassByStudentId(theId);
+
+		System.out.println("loaded student: " + student);
+		System.out.println("classes: " + student.getCourses());
+
+		System.out.println("done");
+
+	}
+
+	private void findCourseAndStudents(AppDAO appDAO) {
+		int theId = 10;
+
+		Course tempCourse = appDAO.findCourseAndStudentsByCourseId(theId);
+
+		System.out.println("loaded course: " + tempCourse);
+		System.out.println("students: " + tempCourse.getStudents());
+
+		System.out.println("done");
+
+	}
+
+	private void createCourseAndStudents(AppDAO appDAO) {
+
+		Course course1 = new Course("Spring beginnerr");
+		Course course2 = new Course("Spring mid");
+		Course course3 = new Course("Spring advanced");
+
+		Student student1 = new Student("ozg" , "isk", "ozg@gmail.com");
+		Student student2 = new Student("arz" , "test", "de@gmail.com");
+		Student student3 = new Student("vey" , "hu", "re@gmail.com");
+
+
+		course1.addStudent(student1);
+		course1.addStudent(student2);
+		appDAO.save(course1);
 	}
 
 //	private void deleteCourseAndReviews(AppDAO appDAO) {
